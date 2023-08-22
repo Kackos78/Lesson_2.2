@@ -10,7 +10,7 @@ def console_input():
     coll = 0
     while coll == 0:
         try:
-            coll=int(input("Сколько монеток было подбросить?: "))
+            coll=int(input("Сколько монеток подбросить?: "))
             return coll
         except:
             print("Пожалуйста введите положительное целое число \n")

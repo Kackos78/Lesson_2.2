@@ -4,17 +4,23 @@
 # а Катя должна их отгадать. Для этого Петя делает две подсказки. 
 # Он называет сумму этих чисел S и их произведение P. 
 # Помогите Кате отгадать задуманные Петей числа.
+from random import randint
 
+# Петя загадывает числа с консоли
+# def Console_input():
+#     num1, num2 = None, None
+#     while num1 == None:
+#         try: num1 = int(input("Какое первое число?: "))            
+#         except: print("Пожалуйста введите целые натуральные числа \n")
+#     while num2 == None:
+#         try: num2 = int(input("Какое второе число?: "))
+#         except: print("Пожалуйста введите целые натуральные числа \n")
+#     return num1, num2
 
-# Петя загадывает числа
-def Console_input():
-    num1, num2 = None, None
-    while num1 == None:
-        try: num1 = int(input("Какое первое число?: "))            
-        except: print("Пожалуйста введите целые натуральные числа \n")
-    while num2 == None:
-        try: num2 = int(input("Какое второе число?: "))
-        except: print("Пожалуйста введите целые натуральные числа \n")
+# Петя отдает числа на волю рандома
+def Rand_nums():
+    num1 = randint(1,1000)
+    num2 = randint(1,1000)
     return num1, num2
 
 def Do_sum_and_mul(num1, num2):
@@ -33,20 +39,21 @@ def Find_dividers(mul):
     return div
 
 # Перебираем найденные делители
-def Find_term(sum, div):
+def Find_term(sum, mul, div):
     check = True
     for i in range(len(div)):
         for j in range(len(div)):
-            if div[i] + div[j] == sum:
+            if div[i] + div[j] == sum and div[i] * div[j] == mul:
                 check = False
                 return div[i], div[j]
     if check:
         return "Неверные значения"
             
-num1, num2 = Console_input()
+# num1, num2 = Console_input()
+num1, num2 = Rand_nums()
 sum, mul = Do_sum_and_mul(num1, num2)
 print(f"Петя загадал числа {num1} и {num2}")
 print(f"Их сумма их равна {sum}, а произведение {mul}")
 
-print(f"Катя угадывает эти числа и это {Find_term(sum, Find_dividers(mul))}")
+print(f"Катя угадывает эти числа и это {Find_term(sum, mul, Find_dividers(mul))}")
 
