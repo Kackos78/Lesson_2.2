@@ -7,8 +7,14 @@
 from random import getrandbits
 
 def console_input():
-    coll=int(input("Сколько монеток было подбросить?: "))
-    return coll
+    coll = 0
+    while coll == 0:
+        try:
+            coll=int(input("Сколько монеток было подбросить?: "))
+            return coll
+        except:
+            print("Пожалуйста введите положительное целое число \n")
+            
 
 def flipping_coins():
     n = console_input()
@@ -28,4 +34,4 @@ def flipping_coins():
     else:
         return count_of_tail
 
-print(flipping_coins())
+print(f"Нужно перевернуть минимум {flipping_coins()} монет")
