@@ -11,12 +11,12 @@ def console_input():
             print("Введите целое, положительное число!")
 
 def mult_two(N):
-    mul = 1
+    mul = 2
     i = 1
     dic = {}
     while mul < N:
+        dic[f"2 в степени {i}"] = {mul}
         mul = mul * 2
-        dic[i] = {mul}
         i += 1
     return dic
 

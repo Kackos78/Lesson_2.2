@@ -7,11 +7,11 @@
 # 89,126 -> 5
 # 0,001->4
 
+# Работает только с числами до 1_000_000 после запятой
 
 def console_input():
     N= float((input("Введите число: ")))
     return N
-
 
 def count_nums(N):
     if N < 1:
@@ -19,7 +19,7 @@ def count_nums(N):
     N = N * 1_000_000
 
     while N % 10 == 0:
-        N = N / 10
+        N = N // 10
     count = 0
     while N != 0:
         N = N // 10
